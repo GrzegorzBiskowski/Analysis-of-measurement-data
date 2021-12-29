@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1640809428 source:c:\users\grzesiek\documents\projekt c++\analysis of measurement data\e-06 - ohm's law\main.cpp
+	<iostream>
+	<conio.h>
+	<cmath>
+	"ohmslaw.h"
+
+1640809428 c:\users\grzesiek\documents\projekt c++\analysis of measurement data\e-06 - ohm's law\ohmslaw.h
+
+1640809451 source:c:\users\grzesiek\documents\projekt c++\analysis of measurement data\e-06 - ohm's law\ohmslaw.cpp
+	<iostream>
+	<conio.h>
+	<cmath>
+	"ohmslaw.h"
+

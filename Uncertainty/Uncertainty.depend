@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1640878258 source:c:\users\grzesiek\documents\projekt c++\analysis of measurement data\uncertainty\main.cpp
+1640880242 source:c:\users\grzesiek\documents\projekt c++\analysis of measurement data\uncertainty\main.cpp
 	<iostream>
 	<cmath>
 	<conio.h>

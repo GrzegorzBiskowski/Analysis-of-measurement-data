@@ -5,16 +5,16 @@
 
 using namespace std;
 
-float fCorrectCUncertainty;
+double fCorrectCUncertainty;
 int nCorrectMagnitude;
 
-bool Magnitude(int, float);
+bool Magnitude(int, double);
 
 int main()
 {
     string strQuantity, strUnit, strUnit_2;
     int nChoise, nUnitOrderOfMagnitude, nNumberOfMeasurements;
-    float fBUncertainty, fAverage, fSum = 0.0, fAUncertainty, fCUncertainty, fSum_2 = 0.0;
+    double fBUncertainty, fAverage, fSum = 0.0, fAUncertainty, fCUncertainty, fSum_2 = 0.0;
     //Get name for the quantity and basic unit
     cout << "Quantity: ";
     cin >> strQuantity;
@@ -73,7 +73,7 @@ int main()
     //Get total number of measurement and a list of them
     cout << "What is the total number of measurements of " << strQuantity << "?: ";
     cin >> nNumberOfMeasurements;
-    float f_aMeasurements[nNumberOfMeasurements];
+    double f_aMeasurements[nNumberOfMeasurements];
     for (int i = 0; i < nNumberOfMeasurements; i++)
     {
         cout << strQuantity << " " << i + 1 << strUnit_2 << ": ";
@@ -106,14 +106,14 @@ int main()
     getch();
     return 0;
 }
-bool Magnitude(int nUnitOrderOfMagnitude, float fCUncertainty)
+bool Magnitude(int nUnitOrderOfMagnitude, double fCUncertainty)
 {
     int nRelMagnitude;
     //Check order of magnitude of total uncertainty value (without considering units)
-    for (int i = -15; i < 15; i++)
+    for (int i = -20; i < 20; i++)
     {
-        int nMagnitude = pow(10, i);
-        if (fCUncertainty / nMagnitude >= 1 && fCUncertainty / nMagnitude < 10)
+        int nMagnitude = pow(10, -i);
+        if (fCUncertainty * nMagnitude >= 1 && fCUncertainty * nMagnitude < 10)
         {
             nRelMagnitude = i;
             break;

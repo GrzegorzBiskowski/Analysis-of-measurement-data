@@ -5,6 +5,11 @@
 
 using namespace std;
 
+float fCorrectCUncertainty;
+int nCorrectMagnitude;
+
+bool Magnitude(int, float);
+
 int main()
 {
     string strQuantity, strUnit, strUnit_2;
@@ -92,10 +97,31 @@ int main()
     fAUncertainty = sqrt(fSum_2 / (nNumberOfMeasurements - 1));
     //Calculate type C uncertainty
     fCUncertainty = sqrt(pow(fAUncertainty, 2) + pow(fBUncertainty * sqrt(3), 2));
+    //Uncertainty correction
+    Magnitude(nUnitOrderOfMagnitude, fCUncertainty);
     cout << "Total uncertainty = ";
     cout << fCUncertainty << strUnit_2;
-    cout << " = " << fCUncertainty << "*10^(" << nUnitOrderOfMagnitude << ") ["  << strUnit << "]" <<endl;
+    cout << " = " << fCorrectCUncertainty << "*10^(" << nCorrectMagnitude << ") ["  << strUnit << "]" <<endl;
     cout << "Press any key to exit...";
     getch();
     return 0;
+}
+bool Magnitude(int nUnitOrderOfMagnitude, float fCUncertainty)
+{
+    int nRelMagnitude;
+    //Check order of magnitude of total uncertainty value (without considering units)
+    for (int i = -15; i < 15; i++)
+    {
+        int nMagnitude = pow(10, i);
+        if (fCUncertainty / nMagnitude >= 1 && fCUncertainty / nMagnitude < 10)
+        {
+            nRelMagnitude = i;
+            break;
+        }
+    }
+    //Correct value to one in <1 ; 10)
+    fCorrectCUncertainty = fCUncertainty / pow(10, nRelMagnitude);
+    //Find correct oder of magnitude
+    nCorrectMagnitude = nUnitOrderOfMagnitude + nRelMagnitude;
+    return true;
 }

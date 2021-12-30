@@ -18,8 +18,8 @@ int main()
     cout << endl;
     //Get unit multiplier
     cout << "1.[" << strUnit << "] | 2.[d" << strUnit << "] | 3.[c" << strUnit << "] | 4.[m"<< strUnit << "] | ";
-    cout << "5.[u" << strUnit << "] | 6.[n" << strUnit << "] |7.[da"<< strUnit << "] | 8.[h"<< strUnit << "] | ";
-    cout << "9.[k" << strUnit << "] | 10.[M" << strUnit << "] | 11.[G" << strUnit << "]" << endl;
+    cout << "5.[u" << strUnit << "] | 6.[n" << strUnit << "] | 7.[p"<< strUnit << "] | 8.[da"<< strUnit << "] | ";
+    cout << "9.[h" << strUnit << "] | 10.[k" << strUnit << "] | 11.[M" << strUnit << "]" << "] | 11.[G" << strUnit << "]" << endl;
     do
     {
         cin >> nChoise;
@@ -44,23 +44,26 @@ int main()
                 nUnitOrderOfMagnitude = -9;
                 strUnit_2 = "[n" + strUnit + "]"; break;}
             case 7:{
+                nUnitOrderOfMagnitude = -12;
+                strUnit_2 = "[p" + strUnit + "]"; break;}
+            case 8:{
                 nUnitOrderOfMagnitude = 1;
                 strUnit_2 = "[da" + strUnit + "]"; break;}
-            case 8:{
-                nUnitOrderOfMagnitude = 2;
-                strUnit_2 = "[c" + strUnit + "]"; break;}
             case 9:{
+                nUnitOrderOfMagnitude = 2;
+                strUnit_2 = "[h" + strUnit + "]"; break;}
+            case 10:{
                 nUnitOrderOfMagnitude = 3;
                 strUnit_2 = "[k" + strUnit + "]"; break;}
-            case 10:{
+            case 11:{
                 nUnitOrderOfMagnitude = 6;
                 strUnit_2 = "[M" + strUnit + "]"; break;}
-            case 11:{
+            case 12:{
                 nUnitOrderOfMagnitude = 9;
                 strUnit_2 = "[G" + strUnit + "]"; break;}
             default: {cout << "Unavailable option! Try again: "; break;}
         }
-    } while (nChoise < 1 || nChoise > 11);
+    } while (nChoise < 1 || nChoise > 12);
     cout << endl;
     //Get total number of measurement and a list of them
     cout << "What is the total number of measurements of " << strQuantity << "?: ";
